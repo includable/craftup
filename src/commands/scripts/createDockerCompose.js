@@ -7,7 +7,7 @@ module.exports = (name, securityKey, port, targetDir) => {
 services:
   web:
     container_name: craft_web_${name}
-    build: .
+    image: craftcms/craft:latest
     restart: always
     volumes:
     - ./:/app:cached
