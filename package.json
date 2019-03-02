@@ -1,0 +1,41 @@
+{
+  "name": "craftup",
+  "version": "1.0.0",
+  "description": "Easy craft development.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "./scripts/prepublish.sh"
+  },
+  "bin": {
+    "craftup": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tschoffelen/craftup.git"
+  },
+  "keywords": [
+    "craft",
+    "cms",
+    "cli",
+    "tool",
+    "development",
+    "local"
+  ],
+  "author": "Thomas Schoffelen <me@thomasschoffelen.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tschoffelen/craftup/issues"
+  },
+  "homepage": "https://github.com/tschoffelen/craftup#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.19.0",
+    "hasbin": "^1.2.3",
+    "mkdirp": "^0.5.1",
+    "ora": "^3.1.0",
+    "unzip": "^0.1.11",
+    "update-notifier": "^2.5.0",
+    "uuid": "^3.3.2"
+  }
+}

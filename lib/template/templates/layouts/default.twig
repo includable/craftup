@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <title>My Company</title>
+
+    <meta name="robots" content="index, follow"/>
+    <meta name="revisit-after" content="7 days"/>
+    <meta name="referrer" content="origin-when-cross-origin"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/index.css"/>
+
+    {% block meta %}
+    {% endblock %}
+
+    <link rel="icon" type="image/png" href="/asses/images/favicon.png" sizes="32x32"/>
+    <link rel="home" href="{{ siteUrl }}"/>
+</head>
+<body class="site-{{ currentSite.handle }}">
+
+{% block content %}
+{% endblock %}
+
+<script src="/assets/js/index.js"></script>
+
+</body>
+</html>

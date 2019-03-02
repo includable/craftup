@@ -2,7 +2,7 @@
 
 set -e
 
-if [ ! -f /app/vendor ]; then
+if [ ! -d "vendor" ]; then
     bash /bin/run-composer
 fi
 
