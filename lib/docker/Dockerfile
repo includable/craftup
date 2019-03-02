@@ -5,15 +5,15 @@ ENV APACHE_DOCUMENT_ROOT /app/web
 
 WORKDIR /app
 
-COPY docker/bin /bin
+COPY ./bin /bin
 
 RUN /bin/install-deps
 RUN /bin/install-extensions
 RUN /bin/configure-apache
 RUN rm /bin/install-deps /bin/install-extensions /bin/configure-apache
 
-COPY config/php /usr/local/etc/php/conf.d
-COPY config/apache /etc/apache2/conf-enabled
+COPY ./config/php /usr/local/etc/php/conf.d
+COPY ./config/apache /etc/apache2/conf-enabled
 
 RUN /bin/run-composer
 RUN rm /bin/run-composer
