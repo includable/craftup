@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -e
+PRE_LAUNCH_SCRIPT_PATH="$1"
+[ -z "$PRE_LAUNCH_SCRIPT_PATH" ] || "$PRE_LAUNCH_SCRIPT_PATH"
+exec apache2-foreground

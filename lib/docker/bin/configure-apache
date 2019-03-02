@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -e
+
+configure_apache() {
+  find \
+    /etc/apache2 \
+    -name '*.conf' \
+    -exec sed -i 's/\/var\/www\/html/\/app\/web/g' {} ';' \
+    -exec sed -i 's/\/var\/www/\/app/g' {} ';'
+
+  pushd /etc/apache2/mods-enabled
+  ln -vs ../mods-available/rewrite.load
+  rm -v deflate.conf deflate.load
+  popd
+}
+
+configure_apache

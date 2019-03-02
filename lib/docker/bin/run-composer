@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+run_composer() {
+  curl -sS https://getcomposer.org/installer | php
+  chmod +x composer.phar
+  mv composer.phar /usr/local/bin/composer
+  composer install --no-dev --optimize-autoloader
+  rm $(which composer)
+  chmod -R 777 web/cpresources
+  chmod -R 777 storage
+}
+
+run_composer

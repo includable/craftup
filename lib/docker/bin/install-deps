@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+install_deps() {
+  apt-get update
+  apt-get -y --no-install-recommends install \
+    curl \
+    unzip \
+    libmcrypt-dev \
+    libmagickwand-dev
+  rm -Rf /var/lib/apt/lists/*
+}
+
+install_deps

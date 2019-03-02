@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -e
+
+install_php_extensions() {
+  docker-php-ext-configure opcache --enable-opcache
+
+  docker-php-ext-install \
+    pdo_mysql \
+    opcache \
+    zip
+
+  pecl install \
+    imagick \
+    redis \
+    mcrypt
+
+  docker-php-ext-enable \
+    imagick \
+    redis
+}
+
+install_php_extensions
