@@ -7,10 +7,9 @@ WORKDIR /app
 
 COPY ./bin /bin
 
-RUN /bin/install-deps
-RUN /bin/install-extensions
-RUN /bin/configure-apache
-RUN rm /bin/install-deps /bin/install-extensions /bin/configure-apache
+RUN /bin/install-deps && \
+    /bin/install-extensions && \
+    /bin/configure-apache
 
 RUN curl -sS https://getcomposer.org/installer | php && \
     chmod +x composer.phar && \
