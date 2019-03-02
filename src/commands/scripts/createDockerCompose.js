@@ -8,7 +8,6 @@ services:
   web:
     container_name: craft_web_${name}
     image: craftcms/craft:latest
-    restart: never
     volumes:
     - ./:/app:cached
     ports:

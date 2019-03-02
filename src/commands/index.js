@@ -7,6 +7,10 @@ module.exports = (program) => {
   program
     .command('start')
     .description('Run project locally')
-    .option('-s --silent', 'Don\'t open in web browser')
-    .action((silent) => require('./start')(silent))
+    .action(() => require('./start')())
+
+  program
+    .command('cleanup')
+    .description('Clean up local environment')
+    .action(() => require('./cleanup')())
 }

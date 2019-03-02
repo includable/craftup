@@ -7,6 +7,15 @@ const loadProject = require('./scripts/loadProject')
 const openInBrowser = require('./scripts/openInBrowser')
 const ensureDocker = require('./scripts/ensureDocker')
 
+let child
+
+process.on('SIGINT', () => {
+  if (child) {
+    child.kill()
+  }
+  process.exit()
+})
+
 module.exports = () => {
   // Check requirements
   ensureDocker()
@@ -14,13 +23,13 @@ module.exports = () => {
   // Load project meta
   const project = loadProject()
   let started = false
-  let spinner = ora('Starting local server').start()
+  let spinner = ora('Starting local development server').start()
 
   // Start docker-compose
-  const child = exec('docker-compose up --exit-code-from web', {
+  child = exec('docker-compose up --abort-on-container-exit --exit-code-from web', {
     silent: true
   }, (code, stdout, stderr) => {
-    console.log(chalk.red(stdout))
+    console.log(stdout)
     console.log(chalk.red(stderr))
     process.exit(code)
   })
@@ -31,9 +40,13 @@ module.exports = () => {
   })
 
   // Open browser when ready
+  let tries = 0
   const checkStarted = () => {
     axios
-      .get('http://localhost:' + project.port + '/admin', {timeout: 1000})
+      .get(`http://localhost:${project.port}/admin/login`, {
+        timeout: 1000,
+        headers: {'User-Agent': 'craftup/1.0.0'}
+      })
       .then(() => {
         openInBrowser(project.port)
         setTimeout(() => {
@@ -42,9 +55,15 @@ module.exports = () => {
         }, 3000)
         spinner.succeed()
       })
-      .catch((e) => {
+      .catch(() => {
         setTimeout(() => checkStarted(), 2000)
-        console.log(e)
+        tries++
+        if (tries > 50) {
+          spinner.fail()
+          console.log(chalk.red.bold('Could not start docker container...'))
+          child.kill()
+          process.exit(1)
+        }
       })
   }
 
