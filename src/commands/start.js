@@ -35,7 +35,7 @@ module.exports = () => {
   })
   child.stdout.on('data', (data) => {
     if (started) {
-      console.log(data)
+      console.log(data.trim())
     }
   })
 

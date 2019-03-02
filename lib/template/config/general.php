@@ -14,8 +14,7 @@ return [
         'cpTrigger' => 'admin',
         'securityKey' => getenv('SECURITY_KEY'),
         'useProjectConfigFile' => true,
-        'sendPoweredByHeader' => false,
-        'allowUpdates' => false
+        'sendPoweredByHeader' => false
     ],
 
     // Dev environment settings
