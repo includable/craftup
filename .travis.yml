@@ -4,8 +4,5 @@ services:
   - docker
 
 script:
-  - #npm test
-
-before_deploy:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - cd lib/docker && bash ./build.sh
