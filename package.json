@@ -36,6 +36,7 @@
     "hasbin": "^1.2.3",
     "mkdirp": "^0.5.1",
     "ora": "^3.1.0",
+    "prompt-confirm": "^2.0.4",
     "shelljs": "^0.8.3",
     "unzip": "^0.1.11",
     "update-notifier": "^2.5.0",

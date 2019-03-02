@@ -9,12 +9,18 @@ const ensureDocker = require('./scripts/ensureDocker')
 
 let child
 
-process.on('SIGINT', () => {
+const cleanup = () => {
   if (child) {
-    child.kill()
+    console.log('')
+    const spinner = ora('Stopping server').start()
+    child.kill('SIGINT')
+    exec('docker-compose stop', {silent: true})
+    spinner.stop()
   }
   process.exit()
-})
+}
+
+process.on('SIGINT', cleanup)
 
 module.exports = () => {
   // Check requirements

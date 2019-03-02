@@ -10,9 +10,9 @@ module.exports = (program) => {
     .action(() => require('./start')())
 
   program
-    .command('cleanup')
+    .command('clean')
     .description('Clean up local environment')
-    .action(() => require('./cleanup')())
+    .action(() => require('./clean')())
 
   program
     .command('composer <package>')
