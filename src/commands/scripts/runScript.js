@@ -1,6 +1,20 @@
 const chalk = require('chalk')
 const {exec} = require('shelljs')
 
+const prefixed = (eventName, value, negative = false) => {
+  value = value.split('\n')
+  for (let line of value) {
+    line = line.trim()
+    if (!line.length) {
+      continue
+    }
+    if (negative) {
+      line = chalk.red(line)
+    }
+    console.log(chalk.blue('script_' + eventName + ' | ') + line)
+  }
+}
+
 module.exports = (project, eventName) => {
   if (!('scripts' in project && project.scripts && eventName in project.scripts && project.scripts[eventName])) {
     return
@@ -11,25 +25,28 @@ module.exports = (project, eventName) => {
     scripts = [scripts]
   }
 
+  let index = 0
   for (const script of scripts) {
-    const opts = {
-      silent: true,
-      async: true
-    }
+    setTimeout(() => {
+      const opts = {
+        silent: true,
+        async: true
+      }
 
-    console.log(chalk.dim('Executing "' + script + '"'))
+      prefixed(eventName, chalk.dim('Executing "' + script + '"'))
 
-    const process = exec(script, opts)
-    process.on('exit', function (code) {
-      code = parseInt(code, 10) || code
-      console.log(chalk[code === 0 ? 'dim' : 'red']('Exited with code ' + code))
-    })
+      const process = exec(script, opts)
+      process.on('exit', function (code) {
+        code = parseInt(code, 10) || code
+        prefixed(eventName, 'Exited with code ' + code, code > 0)
+      })
 
-    process.stderr.on('data', function (message) {
-      console.log(chalk.red(message))
-    })
-    process.stdout.on('data', function (message) {
-      console.log(chalk.dim(message))
-    })
+      process.stderr.on('data', function (message) {
+        prefixed(eventName, message, true)
+      })
+      process.stdout.on('data', function (message) {
+        prefixed(eventName, message)
+      })
+    }, (index++) * 100)
   }
 }
