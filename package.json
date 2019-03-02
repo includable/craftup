@@ -1,11 +1,10 @@
 {
   "name": "craftup",
   "version": "1.0.0",
-  "description": "Easy craft development.",
+  "description": "Easy Craft CMS development.",
   "main": "index.js",
   "scripts": {
-    "start": "./index.js",
-    "prepublishOnly": "./scripts/prepublish.sh"
+    "prepublish": "./scripts/prepublish.sh"
   },
   "bin": {
     "craftup": "./index.js"
@@ -17,6 +16,7 @@
   "keywords": [
     "craft",
     "cms",
+    "craftcms",
     "cli",
     "tool",
     "development",

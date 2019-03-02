@@ -5,12 +5,18 @@ const {exec} = require('shelljs')
 
 const loadProject = require('./scripts/loadProject')
 const openInBrowser = require('./scripts/openInBrowser')
+const ensureDocker = require('./scripts/ensureDocker')
 
 module.exports = () => {
+  // Check requirements
+  ensureDocker()
+
+  // Load project meta
   const project = loadProject()
   let started = false
   let spinner = ora('Starting local server').start()
 
+  // Start docker-compose
   const child = exec('docker-compose up --exit-code-from web', {
     silent: true
   }, (code, stdout, stderr) => {
@@ -24,6 +30,7 @@ module.exports = () => {
     }
   })
 
+  // Open browser when ready
   const checkStarted = () => {
     axios
       .get('http://localhost:' + project.port + '/admin', {timeout: 1000})

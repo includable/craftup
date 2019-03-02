@@ -2,20 +2,17 @@ const path = require('path')
 const mkdirp = require('mkdirp')
 const unzip = require('unzip')
 const fs = require('fs')
-const hasbin = require('hasbin')
+const chalk = require('chalk')
 const uuid = require('uuid/v4')
 const child = require('child_process')
-const chalk = require('chalk')
 
 const createCraftupJson = require('./scripts/createCraftupJson')
 const createDockerCompose = require('./scripts/createDockerCompose')
+const ensureDocker = require('./scripts/ensureDocker')
 
 module.exports = (name) => {
   // Check requirements
-  if (!hasbin.sync('docker-compose')) {
-    console.log(chalk.red('Docker should be installed and running'))
-    console.log('Download Docker for Mac: https://hub.docker.com/editions/community/docker-ce-desktop-mac')
-  }
+  ensureDocker()
 
   // Check name
   name = name.toLowerCase().trim()
