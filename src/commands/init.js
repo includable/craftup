@@ -30,13 +30,10 @@ module.exports = (name) => {
   // Create directory
   const baseDir = path.resolve(process.cwd())
   const targetDir = path.join(baseDir, name)
-  try {
-    fs.statSync(targetDir)
+  if (fs.existsSync(targetDir)) {
     console.log(chalk.red(`Directory '${name} already exists'`))
     console.log('Please choose a name of a non-existing directory for your new project.')
     process.exit(1)
-  } catch (err) {
-    // This is good - directory does not yet exist
   }
   try {
     mkdirp.sync(targetDir)
@@ -72,13 +69,12 @@ module.exports = (name) => {
    First execute ${chalk.bold.yellow('cd ' + name)} to enter the directory of the new site.
    After doing that, you can run any of the following commands:
    
-       ${chalk.bold.yellow('craftup up')}       ${chalk.dim('start the local development server')}
-       ${chalk.bold.yellow('craftup down')}     ${chalk.dim('stop the local development server')}
+       ${chalk.bold.yellow('craftup start')}     ${chalk.dim('start the local development server')}
        
-       ${chalk.bold.yellow('craftup editor')}   ${chalk.dim('to open the site in your editor')}
+       ${chalk.bold.yellow('craftup editor')}    ${chalk.dim('to open the site in your editor')}
        
-       ${chalk.bold.yellow('craftup push')}     ${chalk.dim('to upload the files and database')}
-       ${chalk.bold.yellow('craftup pull')}     ${chalk.dim('to pull the production database')}
+       ${chalk.bold.yellow('craftup push')}      ${chalk.dim('to upload the files and database')}
+       ${chalk.bold.yellow('craftup pull')}      ${chalk.dim('to pull the production database')}
 `)
         })
       }, 300)
