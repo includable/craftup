@@ -13,4 +13,9 @@ module.exports = (program) => {
     .command('cleanup')
     .description('Clean up local environment')
     .action(() => require('./cleanup')())
+
+  program
+    .command('composer <package>')
+    .description('Install a Composer package')
+    .action((pkg) => require('./composer')(pkg))
 }
