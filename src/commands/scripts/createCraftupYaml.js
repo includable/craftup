@@ -1,3 +1,4 @@
+const yaml = require('yaml')
 const path = require('path')
 const fs = require('fs')
 
@@ -20,6 +21,6 @@ module.exports = (name, securityKey, port, targetDir) => {
   }
 
   fs.writeFileSync(
-    path.join(targetDir, 'craftup.json'),
-    JSON.stringify(json, null, 2), 'utf8')
+    path.join(targetDir, 'config', 'craftup.yaml'),
+    yaml.stringify(json), 'utf8')
 }

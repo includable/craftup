@@ -6,7 +6,7 @@ const chalk = require('chalk')
 const uuid = require('uuid/v4')
 const child = require('child_process')
 
-const createCraftupJson = require('./scripts/createCraftupJson')
+const createCraftupYaml = require('./scripts/createCraftupYaml')
 const createDockerCompose = require('./scripts/createDockerCompose')
 const ensureDocker = require('./scripts/ensureDocker')
 
@@ -53,7 +53,7 @@ module.exports = (name) => {
         // Create default files
         const securityKey = uuid()
         const port = 3000 + Math.round(Math.random() * 4000)
-        createCraftupJson(name, securityKey, port, targetDir)
+        createCraftupYaml(name, securityKey, port, targetDir)
         createDockerCompose(name, securityKey, port, targetDir)
 
         // Create git repo

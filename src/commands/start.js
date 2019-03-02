@@ -6,6 +6,7 @@ const {exec} = require('shelljs')
 const loadProject = require('./scripts/loadProject')
 const openInBrowser = require('./scripts/openInBrowser')
 const ensureDocker = require('./scripts/ensureDocker')
+const runScript = require('./scripts/runScript')
 
 let child
 
@@ -54,12 +55,13 @@ module.exports = () => {
         headers: {'User-Agent': 'craftup/1.0.0'}
       })
       .then(() => {
+        spinner.succeed()
         openInBrowser(project.port)
         setTimeout(() => {
           console.log('')
           started = true
+          runScript(project, 'start')
         }, 3000)
-        spinner.succeed()
       })
       .catch(() => {
         setTimeout(() => checkStarted(), 2000)
