@@ -1,4 +1,4 @@
-FROM php:7.3-apache
+FROM php:7.2-apache
 
 ENV LANG C.UTF-8
 ENV APACHE_DOCUMENT_ROOT /app/web
