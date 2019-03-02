@@ -12,10 +12,11 @@ RUN /bin/install-extensions
 RUN /bin/configure-apache
 RUN rm /bin/install-deps /bin/install-extensions /bin/configure-apache
 
+RUN curl -sS https://getcomposer.org/installer | php && \
+    chmod +x composer.phar && \
+    mv composer.phar /usr/local/bin/composer
+
 COPY ./config/php /usr/local/etc/php/conf.d
 COPY ./config/apache /etc/apache2/conf-enabled
-
-RUN /bin/run-composer
-RUN rm /bin/run-composer
 
 ENTRYPOINT ["/bin/launch-craft"]
