@@ -3,6 +3,8 @@
 **The easiest way to develop [Craft CMS](https://craftcms.com/) websites 
 locally and keep them in sync with production.**
 
+[![Travis](https://img.shields.io/travis/com/tschoffelen/craftup.svg)](https://travis-ci.com/tschoffelen/craftup)
+[![npm](https://img.shields.io/npm/v/craftup.svg)](https://npmjs.com/package/craftup)
 
 ## Status
 This project is in alpha status. My team uses it internally for our projects, but there's still a lot to do, especially for non-Mac users.
