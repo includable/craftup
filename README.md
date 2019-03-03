@@ -17,10 +17,10 @@ Please do feel free to help out by submitting pull requests and opening issues.
 ## Introduction
 The goal of `craftup` is twofold:
 
-### Make it super easy to start your next Craft CMS project.
+#### Make it super easy to start your next Craft CMS project.
 We do this by providing a single `craftup init` command which sets up a project scaffold based on the Craft CMS starter template, with some improvements. It also sets up all of the configuration files required to run this new site in Docker, so that you don't need to install Apache, PHP and MySQL locally.
 
-### Make deployments painless.
+#### Make deployments painless.
 If you haven't already set up continous integration for your project, deploying usually means copying files over via FTP, manually exporting your local database and then re-importing that data in the production database. We simplify that by providing the `craftup pull` and `craftup push` commands, which automate every step of this process.
 
 As a bonus, having a single CLI command that performs the whole deployment makes setting up continous integration a lot easier!
@@ -29,7 +29,7 @@ As a bonus, having a single CLI command that performs the whole deployment makes
 ## Limitations
 Although our main goal is to make the lives of Craft developers much easier, there are some limitations with `craftup`:
 
-### Craftup is not git.
+#### Craftup is not git.
 The `push` and `pull` commands don't do any fancy comparison of data. It simply takes all the stuff from place A and puts it in place B. It doesn't care if the data that is already in place B might be newer, it simply overwrites it.
 
 It's your responsibility to make sure you don't overwrite changes made by others or by yourself!
