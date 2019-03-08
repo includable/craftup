@@ -66,7 +66,7 @@ module.exports = () => {
       .catch(() => {
         setTimeout(() => checkStarted(), 2000)
         tries++
-        if (tries > 50) {
+        if (tries > 150) {
           spinner.fail()
           console.log(chalk.red.bold('Could not start docker container...'))
           child.kill()
