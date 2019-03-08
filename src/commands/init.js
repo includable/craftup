@@ -8,12 +8,8 @@ const child = require('child_process')
 
 const createCraftupYaml = require('./scripts/createCraftupYaml')
 const createDockerCompose = require('./scripts/createDockerCompose')
-const ensureDocker = require('./scripts/ensureDocker')
 
 module.exports = (name) => {
-  // Check requirements
-  ensureDocker()
-
   // Check name
   name = name.toLowerCase().trim()
   if (name.length > 20 || name.length < 1 || !name.match(/^[a-z0-9-]+$/)) {
