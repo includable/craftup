@@ -6,7 +6,7 @@ module.exports = (name, securityKey, port, targetDir) => {
   const content = `version: '3'
 services:
   web:
-    container_name: craft_web_${name}
+    container_name: craft_web_${cleanName}
     image: craftcms/craft:latest
     volumes:
     - ./:/app:cached
@@ -24,7 +24,7 @@ services:
     depends_on:
       - mysql
   mysql:
-    container_name: craft_mysql_${name}
+    container_name: craft_mysql_${cleanName}
     restart: always
     image: mysql:5.7
     environment:

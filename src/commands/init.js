@@ -16,10 +16,10 @@ module.exports = (name) => {
 
   // Check name
   name = name.toLowerCase().trim()
-  if (name.length > 20 || name.length < 1 || !name.match(/^[a-z0-9-_]+$/)) {
+  if (name.length > 20 || name.length < 1 || !name.match(/^[a-z0-9-]+$/)) {
     console.log(chalk.red(
-      `Name of your new project should consist out of lowercase a-z, 0-9, dashes and ` +
-      `underscores, and be no more than 20 characters long.`
+      `Name of your new project should consist only out of lowercase a-z, 0-9 and dashes, ` +
+      `and be no more than 20 characters long.`
     ))
     process.exit(1)
   }
