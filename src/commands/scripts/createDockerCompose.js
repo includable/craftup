@@ -27,6 +27,8 @@ services:
     container_name: craft_mysql_${cleanName}
     restart: always
     image: mysql:5.7
+    ports:
+      - ${port + 10}:3306 
     environment:
       MYSQL_DATABASE: craft_${cleanName}
       MYSQL_ROOT_PASSWORD: root
