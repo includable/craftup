@@ -9,9 +9,9 @@ services:
     container_name: craft_web_${cleanName}
     image: craftcms/craft:latest
     volumes:
-    - ./:/app:cached
+      - ./:/app:cached
     ports:
-    - ${port}:80
+      - ${port}:80
     environment:
       ENVIRONMENT: dev
       SECURITY_KEY: ${securityKey}
