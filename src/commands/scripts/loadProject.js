@@ -6,7 +6,7 @@ const fs = require('fs')
 module.exports = () => {
   const filename = path.join('config', 'craftup.yaml')
   if (!fs.existsSync(filename)) {
-    console.log(chalk.red(`Could not find craftup.json`))
+    console.log(chalk.red(`Could not find config/craftup.yaml`))
     console.log('Make sure to only run this command in a directory created via ' +
       chalk.yellow.bold('craftup init') + '.')
     process.exit(1)
