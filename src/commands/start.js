@@ -7,6 +7,7 @@ const loadProject = require('./scripts/loadProject')
 const openInBrowser = require('./scripts/openInBrowser')
 const ensureDocker = require('./scripts/ensureDocker')
 const runScript = require('./scripts/runScript')
+const startDocker = require('./scripts/startDocker')
 
 let child
 
@@ -32,14 +33,7 @@ module.exports = () => {
   let started = false
   let spinner = ora('Starting local development server').start()
 
-  // Start docker-compose
-  child = exec('docker-compose up --abort-on-container-exit --exit-code-from web', {
-    silent: true
-  }, (code, stdout, stderr) => {
-    console.log(stdout)
-    console.log(chalk.red(stderr))
-    process.exit(code)
-  })
+  const child = startDocker()
   child.stdout.on('data', (data) => {
     if (started) {
       console.log(data.trim())

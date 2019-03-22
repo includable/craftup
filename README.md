@@ -9,6 +9,8 @@ locally and keep them in sync with production.**
 ## Status
 This project is in alpha status. My team uses it internally for our projects, but there's still a lot to do, especially for non-Mac users.
 
+- [x] Create and run new projects with `init` and `start` commands
+- [x] Import and export database with `load` and `dump` commands
 - [ ] Add FTP support for `push` and `pull` commands
 - [ ] Add SSH support for `push` and `pull` commands
 - [ ] Add support for Windows and Linux
