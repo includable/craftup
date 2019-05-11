@@ -2,9 +2,7 @@
 
 set -e
 
-if [ ! -d "vendor" ]; then
-    bash /bin/run-composer
-fi
+bash /bin/run-composer
 
 PRE_LAUNCH_SCRIPT_PATH="$1"
 [ -z "$PRE_LAUNCH_SCRIPT_PATH" ] || "$PRE_LAUNCH_SCRIPT_PATH"
