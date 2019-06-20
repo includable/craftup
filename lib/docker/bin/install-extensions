@@ -6,6 +6,7 @@ install_php_extensions() {
 
   docker-php-ext-install \
     pdo_mysql \
+    gd \
     opcache \
     zip
 
@@ -16,7 +17,8 @@ install_php_extensions() {
 
   docker-php-ext-enable \
     imagick \
-    redis
+    redis \
+    gd
 }
 
 install_php_extensions
