@@ -19,7 +19,8 @@ install_php_extensions() {
   docker-php-ext-enable \
     imagick \
     redis \
-    gd
+    gd \
+    bcmath
 }
 
 install_php_extensions
