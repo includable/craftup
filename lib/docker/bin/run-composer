@@ -2,7 +2,7 @@
 set -e
 
 run_composer() {
-  composer install --no-dev --optimize-autoloader --ignore-platform-deps || true
+  composer install --no-dev --optimize-autoloader --ignore-platform-reqs || true
 
   chmod -R 777 web/cpresources
   chmod -R 777 storage
