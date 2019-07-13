@@ -18,4 +18,4 @@ rm -rf ./web/cpresources 2> /dev/null
 mkdir -p ./web/cpresources
 touch ./web/cpresources/.gitkeep
 
-zip -r ../../dist/template.zip .
+zip -qr ../../dist/template.zip .
