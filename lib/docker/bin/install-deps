@@ -6,7 +6,7 @@ install_deps() {
   apt-get -y --no-install-recommends install \
     curl \
     unzip \
-    mysql-client \
+    mariadb-client \
     libmcrypt-dev \
     libmagickwand-dev
   rm -Rf /var/lib/apt/lists/*
