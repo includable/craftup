@@ -7,7 +7,7 @@ module.exports = (name, securityKey, port, targetDir) => {
 services:
   web:
     container_name: craft_web_${cleanName}
-    image: craftcms/craft:latest
+    image: craftup/craft:latest
     volumes:
       - ./:/app:cached
     ports:
@@ -28,7 +28,7 @@ services:
     restart: always
     image: mysql:5.7
     ports:
-      - ${port + 10}:3306 
+      - ${port + 10}:3306
     environment:
       MYSQL_DATABASE: craft_${cleanName}
       MYSQL_ROOT_PASSWORD: root
