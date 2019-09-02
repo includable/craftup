@@ -34,6 +34,7 @@
     "chalk": "^2.4.2",
     "commander": "^2.19.0",
     "hasbin": "^1.2.3",
+    "log-update": "^3.2.0",
     "mkdirp": "^0.5.1",
     "mysql-import": "^1.0.13",
     "mysqldump": "^2.2.1",

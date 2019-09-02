@@ -1,7 +1,8 @@
 const ora = require('ora')
 const axios = require('axios')
 const chalk = require('chalk')
-const {exec} = require('shelljs')
+const { exec } = require('shelljs')
+const logUpdate = require('log-update')
 
 const loadProject = require('./scripts/loadProject')
 const openInBrowser = require('./scripts/openInBrowser')
@@ -16,7 +17,7 @@ const cleanup = () => {
     console.log('')
     const spinner = ora('Stopping server').start()
     child.kill('SIGINT')
-    exec('docker-compose stop', {silent: true})
+    exec('docker-compose stop', { silent: true })
     spinner.stop()
   }
   process.exit()
@@ -31,12 +32,17 @@ module.exports = () => {
   // Load project meta
   const project = loadProject()
   let started = false
-  let spinner = ora('Starting local development server').start()
+  let spinner = ora('Starting local development server')
+  let logLines = ''
+
+  const int = setInterval(() => logUpdate(logLines + '\n' + spinner.frame()), 100)
 
   const child = startDocker()
   child.stdout.on('data', (data) => {
     if (started) {
       console.log(data.trim())
+    } else {
+      logLines += data.trim() + '\n'
     }
   })
 
@@ -46,9 +52,11 @@ module.exports = () => {
     axios
       .get(`http://localhost:${project.port}/admin/login`, {
         timeout: 1000,
-        headers: {'User-Agent': 'craftup/1.0.0'}
+        headers: { 'User-Agent': 'craftup/1.0.0' }
       })
       .then(() => {
+        logUpdate(logLines)
+        clearInterval(int)
         spinner.succeed()
         openInBrowser(project.port)
         setTimeout(() => {
@@ -61,6 +69,8 @@ module.exports = () => {
         setTimeout(() => checkStarted(), 2000)
         tries++
         if (tries > 150) {
+          logUpdate(logLines)
+          clearInterval(int)
           spinner.fail()
           console.log(chalk.red.bold('Could not start docker container...'))
           child.kill()
