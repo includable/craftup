@@ -52,7 +52,8 @@ module.exports = () => {
     axios
       .get(`http://localhost:${project.port}/admin/login`, {
         timeout: 1000,
-        headers: { 'User-Agent': 'craftup/1.0.0' }
+        headers: { 'User-Agent': 'craftup/1.0.0' },
+        validateStatus: () => true
       })
       .then(() => {
         logUpdate(logLines)
@@ -63,12 +64,12 @@ module.exports = () => {
           console.log('')
           started = true
           runScript(project, 'start')
-        }, 3000)
+        }, 1000)
       })
       .catch(() => {
-        setTimeout(() => checkStarted(), 2000)
+        setTimeout(() => checkStarted(), 1000)
         tries++
-        if (tries > 150) {
+        if (tries > 200) {
           logUpdate(logLines)
           clearInterval(int)
           spinner.fail()
