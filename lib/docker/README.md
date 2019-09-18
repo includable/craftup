@@ -1,6 +1,6 @@
 # Craft image for Docker
 
-A ready-to-use PHP 7.2 image for websites built using Craft CMS.
+A ready-to-use PHP 7.3 image for websites built using Craft CMS.
 
 
 ## Basic usage
@@ -20,7 +20,7 @@ RUN /bin/run-composer
 
 ## Using Docker Compose
 
-To run this locally, you would also need a database instance. The 
+To run this locally, you would also need a database instance. The
 easiest way to set up both of these at the same time would be by
 creating a `docker-compose.yml` file and running `docker-compose up`:
 
