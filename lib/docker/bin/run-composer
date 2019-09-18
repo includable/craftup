@@ -4,6 +4,7 @@ run_composer() {
 
   chmod -R 777 web/cpresources
   mkdir -p storage/runtime
+  mkdir -p storage/logs
   chmod -R 777 storage
 
   php ./craft migrate/all
