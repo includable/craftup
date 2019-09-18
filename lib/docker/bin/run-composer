@@ -4,6 +4,10 @@ run_composer() {
 
   chmod -R 777 web/cpresources
   chmod -R 777 storage
+
+  php ./craft migrate/all
+  php ./craft project-config/sync
+  php ./craft clear-caches/all
 }
 
 run_composer || true

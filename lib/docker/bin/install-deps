@@ -7,6 +7,7 @@ install_deps() {
     curl \
     unzip \
     mariadb-client \
+    libzip-dev \
     libmcrypt-dev \
     libmagickwand-dev
   rm -Rf /var/lib/apt/lists/*
