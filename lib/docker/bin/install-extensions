@@ -9,7 +9,8 @@ install_php_extensions() {
     gd \
     opcache \
     zip \
-    bcmath
+    bcmath \
+    intl
 
   pecl install \
     imagick \
@@ -20,7 +21,8 @@ install_php_extensions() {
     imagick \
     redis \
     gd \
-    bcmath
+    bcmath \
+    intl
 }
 
 install_php_extensions
