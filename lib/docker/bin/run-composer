@@ -6,6 +6,10 @@ run_composer() {
   mkdir -p ./storage/runtime
   mkdir -p ./storage/logs
   chmod -R 777 ./storage
+
+  php ./craft migrate/all
+  php ./craft project-config/sync
+  php ./craft clear-caches/all
 }
 
 run_composer || true
