@@ -2,14 +2,10 @@
 run_composer() {
   composer install --no-dev --optimize-autoloader --ignore-platform-reqs
 
-  chmod -R 777 web/cpresources
-  mkdir -p storage/runtime
-  mkdir -p storage/logs
-  chmod -R 777 storage
-
-  php ./craft migrate/all
-  php ./craft project-config/sync
-  php ./craft clear-caches/all
+  chmod -R 777 ./web/cpresources
+  mkdir -p ./storage/runtime
+  mkdir -p ./storage/logs
+  chmod -R 777 ./storage
 }
 
 run_composer || true
