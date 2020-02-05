@@ -32,18 +32,12 @@ module.exports = () => {
   // Load project meta
   const project = loadProject()
   let started = false
-  let spinner = ora('Starting local development server')
-  let logLines = ''
 
-  const int = setInterval(() => logUpdate(logLines + '\n' + spinner.frame()), 100)
+  console.log('Starting Docker container...')
 
   const child = startDocker()
   child.stdout.on('data', (data) => {
-    if (started) {
       console.log(data.trim())
-    } else {
-      logLines += data.trim() + '\n'
-    }
   })
 
   // Open browser when ready
@@ -56,9 +50,6 @@ module.exports = () => {
         validateStatus: () => true
       })
       .then(() => {
-        logUpdate(logLines)
-        clearInterval(int)
-        spinner.succeed()
         openInBrowser(project.port)
         setTimeout(() => {
           console.log('')
@@ -70,9 +61,6 @@ module.exports = () => {
         setTimeout(() => checkStarted(), 1000)
         tries++
         if (tries > 200) {
-          logUpdate(logLines)
-          clearInterval(int)
-          spinner.fail()
           console.log(chalk.red.bold('Could not start docker container...'))
           child.kill()
           process.exit(1)

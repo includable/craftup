@@ -5,7 +5,7 @@ const commands = require('./commands')
 const pkg = require('../package.json')
 
 // Check for updates
-updateNotifier({pkg}).notify()
+updateNotifier({ pkg }).notify()
 
 // Load commands
 commands(program)
@@ -14,7 +14,13 @@ commands(program)
 program
   .version('craftup ' + pkg.version, '-v, --version')
   .parse(process.argv)
-if (program.args.length === 0) {
+
+let called = false
+program.on('command', () => {
+  called = true
+})
+
+if (process.argv.length === 2) {
   program.help()
   process.exit(1)
 }

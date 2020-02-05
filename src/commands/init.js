@@ -1,6 +1,6 @@
 const path = require('path')
 const mkdirp = require('mkdirp')
-const unzip = require('unzip')
+const unzip = require('unzipper')
 const fs = require('fs')
 const chalk = require('chalk')
 const uuid = require('uuid/v4')
