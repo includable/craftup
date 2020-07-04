@@ -1,8 +1,9 @@
 {
   "require": {
-    "craftcms/cms": "^3.0.0",
-    "craftcms/redactor": "^2.3",
-    "vlucas/phpdotenv": "^2.4.0"
+    "craftcms/aws-s3": "^1.2",
+    "craftcms/cms": "^3.4",
+    "craftcms/redactor": "^2.6",
+    "vlucas/phpdotenv": "^4.1"
   },
   "config": {
     "sort-packages": true,

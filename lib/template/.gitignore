@@ -2,5 +2,6 @@
 /.idea
 /vendor
 .DS_Store
+/web/uploads
 /web/cpresources/*
 !/web/cpresources/.gitkeep
