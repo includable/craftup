@@ -1,6 +1,6 @@
 {
   "name": "craftup",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Easy Craft CMS development.",
   "main": "index.js",
   "scripts": {
