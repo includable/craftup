@@ -1,26 +1,29 @@
-const program = require('commander')
-const updateNotifier = require('update-notifier')
+const program = require("commander");
+const updateNotifier = require("update-notifier");
 
-const commands = require('./commands')
-const pkg = require('../package.json')
+const commands = require("./commands");
+const pkg = require("../package.json");
 
 // Check for updates
-updateNotifier({ pkg }).notify()
+updateNotifier({
+  pkg: {
+    name: pkg.name,
+    version: pkg.version,
+  },
+}).notify();
 
 // Load commands
-commands(program)
+commands(program);
 
 // Execute program
-program
-  .version('craftup ' + pkg.version, '-v, --version')
-  .parse(process.argv)
+program.version("craftup " + pkg.version, "-v, --version").parse(process.argv);
 
-let called = false
-program.on('command', () => {
-  called = true
-})
+let called = false;
+program.on("command", () => {
+  called = true;
+});
 
 if (process.argv.length === 2) {
-  program.help()
-  process.exit(1)
+  program.help();
+  process.exit(1);
 }

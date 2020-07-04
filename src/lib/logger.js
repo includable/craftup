@@ -1,10 +1,10 @@
-const chalk = require('chalk')
+const chalk = require("chalk");
 
 module.exports = {
   system: (message) => {
-    return chalk.bold(message)
+    return chalk.bold(message);
   },
   subsystem: (message) => {
-    return '    ' + chalk.gray(message)
-  }
-}
+    return "    " + chalk.gray(message);
+  },
+};
