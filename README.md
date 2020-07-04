@@ -1,22 +1,6 @@
-# craftup
+![React Native starter](.github/banner.svg)
 
-**The easiest way to develop [Craft CMS](https://craftcms.com/) websites
-locally and keep them in sync with production.**
-
-[![Travis](https://img.shields.io/travis/com/tschoffelen/craftup.svg)](https://travis-ci.com/tschoffelen/craftup)
-[![npm](https://img.shields.io/npm/v/craftup.svg)](https://npmjs.com/package/craftup)
-
-## Status
-
-This project is in beta status. Our team has been using it internally for dozens of projects, but there's still a lot to do, especially for non-Mac users.
-
-- [x] Create and run new projects with `init` and `start` commands
-- [x] Import and export database with `load` and `dump` commands
-- [ ] Add FTP support for `push` and `pull` commands
-- [ ] Add SSH support for `push` and `pull` commands
-- [ ] Add support for Windows and Linux
-
-Please do feel free to help out by submitting pull requests and opening issues.
+**The easiest way to develop Craft CMS websites.**
 
 ## Introduction
 
@@ -31,18 +15,6 @@ We do this by providing a single `craftup init` command which sets up a project 
 If you haven't already set up continous integration for your project, deploying usually means copying files over via FTP, manually exporting your local database and then re-importing that data in the production database. We simplify that by providing the `craftup pull` and `craftup push` commands, which automate every step of this process.
 
 As a bonus, having a single CLI command that performs the whole deployment makes setting up continous integration a lot easier!
-
-## Limitations
-
-Although our main goal is to make the lives of Craft developers much easier, there are some limitations with `craftup`:
-
-#### Craftup is not git.
-
-The `push` and `pull` commands don't do any fancy comparison of data. It simply takes all the stuff from place A and puts it in place B. It doesn't care if the data that is already in place B might be newer, it simply overwrites it.
-
-It's your responsibility to make sure you don't overwrite changes made by others or by yourself!
-
-Also, you should never rely on the production server as the main storage for the files that your website consists of. Keep them under version control using git, and push them to a safe place like Github.
 
 ## Installation
 
@@ -109,3 +81,18 @@ The default template contains these plugins pre-installed:
 - Redactor - the rich text editor of choice in Craft
 - AWS S3 - an easy way to store assets in the cloud
 - [SEO](https://github.com/ethercreative/seo#readme) - a simple SEO plugin from Ethercreative
+
+## Project status
+
+[![Travis](https://img.shields.io/travis/com/tschoffelen/craftup.svg)](https://travis-ci.com/tschoffelen/craftup)
+[![npm](https://img.shields.io/npm/v/craftup.svg)](https://npmjs.com/package/craftup)
+
+This project is in beta status. Our team has been using it internally for dozens of projects, but there's still a lot to do, especially for non-Mac users.
+
+- [x] Create and run new projects with `init` and `start` commands
+- [x] Import and export database with `load` and `dump` commands
+- [ ] Add FTP support for `push` and `pull` commands
+- [ ] Add SSH support for `push` and `pull` commands
+- [ ] Add support for Windows and Linux
+
+Please do feel free to help out by submitting pull requests and opening issues.
