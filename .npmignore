@@ -1,6 +1,7 @@
 .idea
 .travis.yml
 .gitignore
+/.github
 /lib
 /dist
 /scripts

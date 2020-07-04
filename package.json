@@ -4,7 +4,6 @@
   "description": "Easy Craft CMS development.",
   "main": "index.js",
   "scripts": {
-    "prepublishOnly": "./scripts/prepublish.sh",
     "lint": "prettier --write src/**/*.js"
   },
   "bin": {
