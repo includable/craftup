@@ -13,6 +13,7 @@ module.exports = (name, targetDir) => {
   const humanName = toHumanReadable(name);
 
   const siteGroupId = uuid();
+  const seoGroupId = uuid();
   const json = {
     dateModified: Math.floor(new Date().valueOf() / 1000),
     email: {
@@ -23,6 +24,46 @@ module.exports = (name, targetDir) => {
     fieldGroups: {
       [uuid()]: {
         name: "Common",
+      },
+      [seoGroupId]: {
+        name: "SEO",
+      },
+    },
+    fields: {
+      [uuid()]: {
+        contentColumnType: "text",
+        fieldGroup: seoGroupId,
+        handle: "seo",
+        instructions: "",
+        name: "SEO",
+        searchable: true,
+        settings: {
+          description: "",
+          hideSocial: "",
+          robots: ["", "", "", "", "", ""],
+          socialImage: "",
+          suffixAsPrefix: null,
+          title: [
+            {
+              __assoc__: [
+                ["key", "1"],
+                ["locked", "0"],
+                ["template", "{title}"],
+              ],
+            },
+            {
+              __assoc__: [
+                ["key", "2"],
+                ["locked", "1"],
+                ["template", " - {{ siteName }}"],
+              ],
+            },
+          ],
+          titleSuffix: null,
+        },
+        translationKeyFormat: null,
+        translationMethod: "none",
+        type: "ether\\seo\\fields\\SeoField",
       },
     },
     plugins: {
@@ -35,6 +76,11 @@ module.exports = (name, targetDir) => {
         edition: "standard",
         enabled: true,
         schemaVersion: "2.3.0",
+      },
+      seo: {
+        edition: "standard",
+        enabled: true,
+        schemaVersion: "3.1.1",
       },
     },
     siteGroups: {
