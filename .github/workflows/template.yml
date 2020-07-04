@@ -1,0 +1,22 @@
+name: Upload template to S3
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - run: cd lib/template && bash build.sh
+      - uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --follow-symlinks --delete --acl public-read
+        env:
+          AWS_S3_BUCKET: craftup-dist
+          AWS_REGION: eu-west-1
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          SOURCE_DIR: 'lib/template/dist'

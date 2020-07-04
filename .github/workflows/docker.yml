@@ -1,0 +1,28 @@
+name: Push Docker images
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Build and push 'craftup/craft'
+          uses: elgohr/Publish-Docker-Github-Action@master
+          with:
+            name: craftup/craft
+            workdir: lib/docker/craft
+            tags: latest
+            username: ${{ secrets.DOCKER_USERNAME }}
+            password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build and push 'craftup/mysql-client'
+          uses: elgohr/Publish-Docker-Github-Action@master
+          with:
+            name: craftup/mysql-client
+            workdir: lib/docker/mysql-client
+            tags: latests
+            username: ${{ secrets.DOCKER_USERNAME }}
+            password: ${{ secrets.DOCKER_PASSWORD }}

@@ -1,20 +1,17 @@
 # My project
 
-This project was bootstrapped using [craftup](http://github.com/tschoffelen/craftup), 
+This project was bootstrapped using [craftup](http://github.com/tschoffelen/craftup),
 the easiest way to set up Craft CMS for local development.
-
 
 ## Usage
 
 For local development, you need to use the following commands and have
 these dependencies installed on your machine.
 
-
 ### Dependencies
 
-* [craftup](http://github.com/tschoffelen/craftup), install via `npm i -g craftup`
-* [docker](http://docker.com)
-
+- [craftup](http://github.com/tschoffelen/craftup), install via `npm i -g craftup`
+- [docker](http://docker.com)
 
 ### Commands
 

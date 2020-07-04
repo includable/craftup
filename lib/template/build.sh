@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-mkdir -p dist
-rm dist/template.zip 2> /dev/null
-
-cd lib/template
+cd src
 
 composer update --optimize-autoloader
 
@@ -18,4 +15,7 @@ rm -rf ./web/cpresources 2> /dev/null
 mkdir -p ./web/cpresources
 touch ./web/cpresources/.gitkeep
 
-zip -qr ../../dist/template.zip .
+mkdir -p ../dist
+rm ../dist/template.zip 2> /dev/null
+
+zip -qr ../dist/template.zip .

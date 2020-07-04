@@ -1,7 +1,7 @@
-/.env
-/.idea
-/vendor
+.env
+.idea
 .DS_Store
+/vendor
 /web/uploads
 /web/cpresources/*
 !/web/cpresources/.gitkeep

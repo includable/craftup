@@ -4,13 +4,11 @@ set -e
 
 bash /bin/run-composer
 
-mkdir -p /app/web/cache
 mkdir -p /app/storage/runtime/mutex
 mkdir -p /app/storage/runtime/temp
 mkdir -p /app/storage/runtime/compiled_classes
 mkdir -p /app/storage/runtime/cache
 mkdir -p /app/storage/runtime/assets
-chmod -R 777 /app/web/cache
 chmod -R 777 /app/storage
 
 PRE_LAUNCH_SCRIPT_PATH="$1"
