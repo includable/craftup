@@ -30,29 +30,29 @@
   "homepage": "https://github.com/tschoffelen/craftup#readme",
   "dependencies": {
     "@includable/open-browser": "^1.1.0",
-    "axios": "^0.19.2",
+    "axios": "^0.20.0",
     "chalk": "^3.0.0",
     "commander": "^4.1.1",
     "download-file": "^0.1.5",
     "hasbin": "^1.2.3",
     "log-update": "^3.4.0",
-    "mkdirp": "^1.0.3",
+    "mkdirp": "^1.0.4",
     "mysql-import": "^1.0.13",
-    "mysqldump": "^2.2.1",
+    "mysqldump": "^2.3.0",
     "open-editor": "^2.0.1",
-    "ora": "^4.0.3",
+    "ora": "^4.1.1",
     "prompt-confirm": "^2.0.4",
-    "shelljs": "^0.8.3",
+    "shelljs": "^0.8.4",
     "tcp-port-used": "^1.0.1",
-    "unzipper": "^0.10.7",
-    "update-notifier": "^4.0.0",
-    "uuid": "^8.2.0",
-    "yaml": "^1.7.2"
+    "unzipper": "^0.10.11",
+    "update-notifier": "^4.1.1",
+    "uuid": "^8.3.0",
+    "yaml": "^1.10.0"
   },
   "devDependencies": {
     "husky": ">=4",
     "lint-staged": ">=10",
-    "prettier": "^2.0.5"
+    "prettier": "^2.1.1"
   },
   "husky": {
     "hooks": {
