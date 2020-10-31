@@ -5,6 +5,7 @@ install_deps() {
   apt-get update
   apt-get -y --no-install-recommends install \
     curl \
+    git \
     unzip \
     mariadb-client \
     libzip-dev \
