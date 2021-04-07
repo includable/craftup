@@ -4,7 +4,8 @@
   "description": "Easy Craft CMS development.",
   "main": "index.js",
   "scripts": {
-    "lint": "prettier --write src/**/*.js"
+    "lint": "prettier --write src/**/*.js",
+    "test": "jest"
   },
   "bin": {
     "craftup": "./index.js"
@@ -31,6 +32,7 @@
   "dependencies": {
     "@includable/open-browser": "^1.1.0",
     "axios": "^0.21.1",
+    "basic-ftp": "^4.6.6",
     "chalk": "^3.0.0",
     "commander": "^4.1.1",
     "download-file": "^0.1.5",
@@ -50,6 +52,7 @@
     "yaml": "^1.10.0"
   },
   "devDependencies": {
+    "jest": "^26.6.3",
     "husky": ">=4",
     "lint-staged": ">=10",
     "prettier": "^2.1.1"

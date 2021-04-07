@@ -8,13 +8,13 @@ The goal of `craftup` is twofold:
 
 #### Make it super easy to start your next Craft CMS project.
 
-We do this by providing a single `craftup init` command which sets up a project scaffold based on the Craft CMS starter template, with some improvements. It also sets up all of the configuration files required to run this new site in Docker, so that you don't need to install Apache, PHP and MySQL locally.
+We do this by providing a single `craftup init` command which sets up a project scaffold based on the Craft CMS starter template, with some improvements. It also sets up all the configuration files required to run this new site in Docker, so that you don't need to install Apache, PHP and MySQL locally.
 
 #### Make deployments painless.
 
-If you haven't already set up continous integration for your project, deploying usually means copying files over via FTP, manually exporting your local database and then re-importing that data in the production database. We simplify that by providing the `craftup pull` and `craftup push` commands, which automate every step of this process.
+If you haven't already set up continuous integration for your project, deploying usually means copying files over via FTP, manually exporting your local database and then re-importing that data in the production database. We simplify that by providing the `craftup pull` and `craftup push` commands, which automate every step of this process.
 
-As a bonus, having a single CLI command that performs the whole deployment makes setting up continous integration a lot easier!
+As a bonus, having a single CLI command that performs the whole deployment makes setting up continuous integration a lot easier!
 
 ## Installation
 
@@ -91,8 +91,8 @@ This project is in beta status. Our team has been using it internally for dozens
 
 - [x] Create and run new projects with `init` and `start` commands
 - [x] Import and export database with `load` and `dump` commands
-- [ ] Add FTP support for `push` and `pull` commands
-- [ ] Add SSH support for `push` and `pull` commands
+- [x] Add FTP support for `pull` command
+- [ ] Add FTP support for `push` command
 - [ ] Add support for Windows and Linux
 
 Please do feel free to help out by submitting pull requests and opening issues.

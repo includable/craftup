@@ -30,6 +30,12 @@ module.exports = (program) => {
     .action((filename) => require("./load")(filename));
 
   program
+    .command("pull [server]")
+    .option("-y, --yes", "force continue")
+    .description("Import the database from the server")
+    .action((server, command) => require("./pull")(server, command));
+
+  program
     .command("composer <package>")
     .description("Install a Composer package")
     .action((pkg) => require("./composer")(pkg));
