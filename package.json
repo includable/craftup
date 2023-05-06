@@ -6,12 +6,10 @@
   "scripts": {
     "lint": "prettier --write src/**/*.js"
   },
-  "bin": {
-    "craftup": "./index.js"
-  },
+  "bin": "./index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tschoffelen/craftup.git"
+    "url": "git+https://github.com/includable/craftup.git"
   },
   "keywords": [
     "craft",
@@ -25,9 +23,9 @@
   "author": "Thomas Schoffelen <me@thomasschoffelen.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tschoffelen/craftup/issues"
+    "url": "https://github.com/includable/craftup/issues"
   },
-  "homepage": "https://github.com/tschoffelen/craftup#readme",
+  "homepage": "https://github.com/includable/craftup#readme",
   "dependencies": {
     "@includable/open-browser": "^1.1.0",
     "axios": "^0.21.1",

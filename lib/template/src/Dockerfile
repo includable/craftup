@@ -1,4 +1,4 @@
-FROM craftup/craft:latest
+FROM ghcr.io/includable/craftup-craft:latest
 
 # Copy app resources
 COPY . /app

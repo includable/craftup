@@ -1,13 +1,13 @@
-const path = require('path')
-const fs = require('fs')
+const path = require("path");
+const fs = require("fs");
 
 module.exports = (name, securityKey, port, targetDir) => {
-  const cleanName = name.replace(/-/g, '_')
+  const cleanName = name.replace(/-/g, "_");
   const content = `version: '3'
 services:
   web:
     container_name: craft_web_${cleanName}
-    image: craftup/craft:latest
+    image: ghcr.io/includable/craftup-craft:latest
     volumes:
       - ./:/app:cached
     ports:
@@ -37,7 +37,7 @@ services:
 
 volumes:
   craft_mysql_${cleanName}:
-`
+`;
 
-  fs.writeFileSync(path.join(targetDir, 'docker-compose.yml'), content, 'utf8')
-}
+  fs.writeFileSync(path.join(targetDir, "docker-compose.yml"), content, "utf8");
+};

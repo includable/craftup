@@ -2,13 +2,12 @@
 
 A ready-to-use PHP 7.4 image for websites built using Craft CMS.
 
-
 ## Basic usage
 
 Create a Dockerfile that looks like this:
 
 ```dockerfile
-FROM craftup/craft:latest
+FROM ghcr.io/includable/craftup-craft:latest
 
 # Copy site resources
 COPY . /app
@@ -17,7 +16,6 @@ COPY . /app
 RUN /bin/run-composer
 ```
 
-
 ## Using Docker Compose
 
 To run this locally, you would also need a database instance. The
@@ -25,15 +23,15 @@ easiest way to set up both of these at the same time would be by
 creating a `docker-compose.yml` file and running `docker-compose up`:
 
 ```yaml
-version: '3'
+version: "3"
 services:
   web:
     build: .
     restart: always
     volumes:
-    - ./:/app:cached
+      - ./:/app:cached
     ports:
-    - 6048:80
+      - 6048:80
     environment:
       ENVIRONMENT: dev
       SECURITY_KEY: yoursecuritykeyhere
