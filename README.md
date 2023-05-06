@@ -1,4 +1,4 @@
-# CraftUp
+# craftup
 
 **The easiest way to develop Craft CMS websites.**
 
