@@ -8,7 +8,6 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: includable/craftup-craft
-  MYSQL_NAME: includable/craftup-mysql-client
 
 jobs:
   push:
@@ -28,9 +27,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4.4.0
         with:
-          images: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-            ${{ env.REGISTRY }}/${{ env.MYSQL_NAME }}
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4.0.0
@@ -38,12 +35,4 @@ jobs:
           context: ./lib/docker/craft
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-          labels: ${{ steps.meta.outputs.labels }}
-
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v4.0.0
-        with:
-          context: ./lib/docker/mysql-client
-          push: true
-          tags: ${{ env.REGISTRY }}/${{ env.MYSQL_NAME }}:latest
           labels: ${{ steps.meta.outputs.labels }}
