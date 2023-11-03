@@ -4001,11 +4001,11 @@ __metadata:
   linkType: hard
 
 "set-value@npm:^3.0.0":
-  version: 3.0.1
-  resolution: "set-value@npm:3.0.1"
+  version: 3.0.3
+  resolution: "set-value@npm:3.0.3"
   dependencies:
     is-plain-object: ^2.0.4
-  checksum: 0723e24d1385d8f1d0e219b6090527b6c38ea16cd79724ffaa7f80764ad21571d2ead351a39093d22c106a9a775f9a3cb91b097e16d81f6185e94fa4b737ea32
+  checksum: 1c96d7570d3d9e602bcb690d183787db104d7f202fc005c0cb90884b754f905881a848b4a52b31d12a06e55933cecb234c10a3ca2dc0c7a9daede3f211161086
   languageName: node
   linkType: hard
 
