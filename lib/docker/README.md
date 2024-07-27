@@ -1,6 +1,6 @@
 # Craft image for Docker
 
-A ready-to-use PHP 7.4 image for websites built using Craft CMS.
+A ready-to-use PHP 8 image for websites built using Craft CMS.
 
 ## Basic usage
 
